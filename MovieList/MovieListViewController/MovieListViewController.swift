@@ -7,50 +7,57 @@
 
 import UIKit
 
-class MovieListController: UIViewController {
+class MovieListViewController: UIViewController {
     
     @IBOutlet weak var movieTableView: UITableView!
     
-    var presenter : MovieListPresenter!
+    var presenter: MovieListPresenter?
+    var router: MovieListVCRouter?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Movies List"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.tintColor = .label
+        
         setupTableView()
-        presenter = MovieListPresenter(self)
-        presenter.movieViewDidLoad()
+        presenter?.loadData()
     }
     
-    func setupTableView() {
+    private func setupTableView() {
         movieTableView.dataSource = self
         movieTableView.delegate = self
         movieTableView.register(UINib(nibName: "MovieCell", bundle: nil), forCellReuseIdentifier: "MovieCell")
     }
 }
 
-extension MovieListController : UITableViewDataSource, UITableViewDelegate {
+extension MovieListViewController : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.returnMoviesCount()
+        return presenter?.returnMoviesCount() ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = movieTableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as? MovieCell else {return UITableViewCell()}
-        let model = presenter.movieModel(for: indexPath)
-        cell.configure(text: model.name, image: URL(string: "https://image.tmdb.org/t/p/w500/\(model.imageURL)")!)
+        let model = presenter?.movieModel(for: indexPath)
+        cell.configure(text: model?.name ?? ""
+                       , image: model!.imageURL) // force
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let vc = storyboard?.instantiateViewController(withIdentifier: "main") as? MovieDetailViewController else {return}
-        navigationController?.pushViewController(vc, animated: true)
+        presenter?.didSelectRowAt(row: indexPath.row)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        100
+        150
+    }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        presenter?.willDisplayAt(row: indexPath.row)
     }
     
 }
 
-extension MovieListController : MovieView {
+extension MovieListViewController: MovieView {
     func fetchDataSuccess() {
         self.movieTableView.reloadData()
     }
