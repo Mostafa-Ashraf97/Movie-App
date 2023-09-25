@@ -21,7 +21,7 @@ class MovieListViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .label
         
         setupTableView()
-        presenter?.loadData()
+        presenter?.fetchData()
     }
     
     private func setupTableView() {

@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		007C4EF82AC219DC008BB202 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007C4EF72AC219DC008BB202 /* NetworkRequest.swift */; };
+		007C4EFA2AC21A13008BB202 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007C4EF92AC21A13008BB202 /* NetworkConstants.swift */; };
+		007C4EFE2AC21A7B008BB202 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 007C4EFD2AC21A7B008BB202 /* Alamofire */; };
+		007C4F002AC21AB2008BB202 /* AlamofireHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007C4EFF2AC21AB2008BB202 /* AlamofireHTTPClient.swift */; };
+		007C4F022AC21B27008BB202 /* AlamofireRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007C4F012AC21B27008BB202 /* AlamofireRequest.swift */; };
+		007C4F042AC21B69008BB202 /* AlamofireRequestLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007C4F032AC21B69008BB202 /* AlamofireRequestLogger.swift */; };
+		007C4F062AC21C46008BB202 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007C4F052AC21C46008BB202 /* TokenManager.swift */; };
+		007C4F092AC21D40008BB202 /* GetMoviesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007C4F082AC21D40008BB202 /* GetMoviesRequest.swift */; };
+		007C4F0C2AC221FF008BB202 /* MovieAPIResponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007C4F0B2AC221FF008BB202 /* MovieAPIResponseMapper.swift */; };
+		007C4F0F2AC22272008BB202 /* MovieRepositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007C4F0E2AC22272008BB202 /* MovieRepositories.swift */; };
 		009F494B2A811B3100F353AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009F494A2A811B3100F353AF /* AppDelegate.swift */; };
 		009F494D2A811B3100F353AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009F494C2A811B3100F353AF /* SceneDelegate.swift */; };
 		009F49542A811B3400F353AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 009F49532A811B3400F353AF /* Assets.xcassets */; };
@@ -49,6 +59,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		007C4EF72AC219DC008BB202 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
+		007C4EF92AC21A13008BB202 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
+		007C4EFF2AC21AB2008BB202 /* AlamofireHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireHTTPClient.swift; sourceTree = "<group>"; };
+		007C4F012AC21B27008BB202 /* AlamofireRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireRequest.swift; sourceTree = "<group>"; };
+		007C4F032AC21B69008BB202 /* AlamofireRequestLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireRequestLogger.swift; sourceTree = "<group>"; };
+		007C4F052AC21C46008BB202 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
+		007C4F082AC21D40008BB202 /* GetMoviesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMoviesRequest.swift; sourceTree = "<group>"; };
+		007C4F0B2AC221FF008BB202 /* MovieAPIResponseMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAPIResponseMapper.swift; sourceTree = "<group>"; };
+		007C4F0E2AC22272008BB202 /* MovieRepositories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRepositories.swift; sourceTree = "<group>"; };
 		009F49472A811B3100F353AF /* Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Task.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		009F494A2A811B3100F353AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		009F494C2A811B3100F353AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				007C4EFE2AC21A7B008BB202 /* Alamofire in Frameworks */,
 				009F49912A83D89900F353AF /* SDWebImageMapKit in Frameworks */,
 				009F498F2A83D89900F353AF /* SDWebImage in Frameworks */,
 			);
@@ -102,6 +122,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		007C4EF62AC21950008BB202 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				007C4F0D2AC2225C008BB202 /* Repositories */,
+				007C4F0A2AC221E2008BB202 /* Mappers */,
+				007C4F072AC21D11008BB202 /* Requests */,
+				007C4EFB2AC21A29008BB202 /* Alamofire */,
+				009F49A42AA682DD00F353AF /* APICaller.swift */,
+				007C4EF72AC219DC008BB202 /* NetworkRequest.swift */,
+				007C4EF92AC21A13008BB202 /* NetworkConstants.swift */,
+				007C4F052AC21C46008BB202 /* TokenManager.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		007C4EFB2AC21A29008BB202 /* Alamofire */ = {
+			isa = PBXGroup;
+			children = (
+				007C4EFF2AC21AB2008BB202 /* AlamofireHTTPClient.swift */,
+				007C4F012AC21B27008BB202 /* AlamofireRequest.swift */,
+				007C4F032AC21B69008BB202 /* AlamofireRequestLogger.swift */,
+			);
+			path = Alamofire;
+			sourceTree = "<group>";
+		};
+		007C4F072AC21D11008BB202 /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				007C4F082AC21D40008BB202 /* GetMoviesRequest.swift */,
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		007C4F0A2AC221E2008BB202 /* Mappers */ = {
+			isa = PBXGroup;
+			children = (
+				007C4F0B2AC221FF008BB202 /* MovieAPIResponseMapper.swift */,
+			);
+			path = Mappers;
+			sourceTree = "<group>";
+		};
+		007C4F0D2AC2225C008BB202 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				007C4F0E2AC22272008BB202 /* MovieRepositories.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
 		009F493E2A811B3100F353AF = {
 			isa = PBXGroup;
 			children = (
@@ -191,7 +260,7 @@
 		009F49A32AA682C000F353AF /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				009F49A42AA682DD00F353AF /* APICaller.swift */,
+				007C4EF62AC21950008BB202 /* Networking */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -263,6 +332,7 @@
 			packageProductDependencies = (
 				009F498E2A83D89900F353AF /* SDWebImage */,
 				009F49902A83D89900F353AF /* SDWebImageMapKit */,
+				007C4EFD2AC21A7B008BB202 /* Alamofire */,
 			);
 			productName = Task;
 			productReference = 009F49472A811B3100F353AF /* Task.app */;
@@ -338,6 +408,7 @@
 			mainGroup = 009F493E2A811B3100F353AF;
 			packageReferences = (
 				009F498D2A83D89900F353AF /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				007C4EFC2AC21A7B008BB202 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 009F49482A811B3100F353AF /* Products */;
 			projectDirPath = "";
@@ -384,6 +455,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				007C4F0C2AC221FF008BB202 /* MovieAPIResponseMapper.swift in Sources */,
+				007C4EFA2AC21A13008BB202 /* NetworkConstants.swift in Sources */,
+				007C4F062AC21C46008BB202 /* TokenManager.swift in Sources */,
+				007C4EF82AC219DC008BB202 /* NetworkRequest.swift in Sources */,
+				007C4F092AC21D40008BB202 /* GetMoviesRequest.swift in Sources */,
 				009F497C2A811BB700F353AF /* MovieModel.swift in Sources */,
 				009F499A2A97ED0C00F353AF /* MovieDetailVCRouter.swift in Sources */,
 				009F49AF2AB7908300F353AF /* MovieListViewController.swift in Sources */,
@@ -391,11 +467,15 @@
 				009F49AA2AB78B4A00F353AF /* MovieDetailViewController.swift in Sources */,
 				009F494B2A811B3100F353AF /* AppDelegate.swift in Sources */,
 				009F498C2A81219000F353AF /* Constants.swift in Sources */,
+				007C4F042AC21B69008BB202 /* AlamofireRequestLogger.swift in Sources */,
 				009F49A52AA682DD00F353AF /* APICaller.swift in Sources */,
+				007C4F0F2AC22272008BB202 /* MovieRepositories.swift in Sources */,
+				007C4F022AC21B27008BB202 /* AlamofireRequest.swift in Sources */,
 				009F499C2A97F08600F353AF /* MovieDetailPresenter.swift in Sources */,
 				009F49982A978DF600F353AF /* MovieListVCRouter.swift in Sources */,
 				009F494D2A811B3100F353AF /* SceneDelegate.swift in Sources */,
 				009F497E2A811BD400F353AF /* MovieListPresenter.swift in Sources */,
+				007C4F002AC21AB2008BB202 /* AlamofireHTTPClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -731,6 +811,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		007C4EFC2AC21A7B008BB202 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		009F498D2A83D89900F353AF /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
@@ -742,6 +830,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		007C4EFD2AC21A7B008BB202 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 007C4EFC2AC21A7B008BB202 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
 		009F498E2A83D89900F353AF /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 009F498D2A83D89900F353AF /* XCRemoteSwiftPackageReference "SDWebImage" */;
