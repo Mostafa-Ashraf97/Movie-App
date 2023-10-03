@@ -18,9 +18,6 @@ class MovieDetailViewController: UIViewController, MovieDetailView {
     func setupDetailView(title: String, overview: String, imageUrl: URL) {
         titleLabel.text = title
         overviewLabel.text = overview
-        
         detailImageView.sd_setImage(with: imageUrl)
     }
-    
-    
 }

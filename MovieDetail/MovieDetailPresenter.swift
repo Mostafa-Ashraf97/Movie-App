@@ -25,9 +25,9 @@ class MovieDetailPresenter {
     func viewDidLoad() {
         let movieName = movie.name ?? movie.originalName ?? movie.title ?? ""
         let movieOverview = movie.overview ?? ""
-        guard let moviePosterUrl = URL(string: "https://image.tmdb.org/t/p/w500/\(movie.posterPath ?? "")") else {return}
+        let posterPath = movie.posterPath ?? ""
+        guard let moviePosterUrl = URL(string: "https://image.tmdb.org/t/p/w500/\(posterPath)") else {return}
         view?.setupDetailView(title: movieName, overview: movieOverview, imageUrl: moviePosterUrl)
-        
     }
     
 }

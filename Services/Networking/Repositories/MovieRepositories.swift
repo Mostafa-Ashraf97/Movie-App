@@ -13,11 +13,11 @@ class MovieRepository {
     init(client: HTTPClient) {
         self.client = client
     }
+    
     func getMovies(page: Int) async throws -> Movies {
         let request = GetMoviesRequest(currentPage: page)
         let result = await client.execute(request)
         let (data, response) = try result.get()
         return try MovieAPIResponseMapper.map(response: response, data: data)
     }
-    
 }

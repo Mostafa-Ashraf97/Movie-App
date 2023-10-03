@@ -9,11 +9,9 @@ import UIKit
 
 class MovieListVCRouter {
    static func createMovieListVC() -> UIViewController {
-//       let navigationController = mainStoryBoard.instantiateViewController(withIdentifier: "UINavigationController")
-//       let movieView = navigationController.children.first as? MovieView
+
        let movieView = MovieListViewController()
        let navigationController = UINavigationController(rootViewController: movieView)
-
        let movieListVCRouter = MovieListVCRouter()
        let movieListPresenter = MovieListPresenter(view: movieView, router: movieListVCRouter)
        movieView.presenter = movieListPresenter

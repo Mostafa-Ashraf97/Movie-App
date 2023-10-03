@@ -34,11 +34,11 @@
 		009F49982A978DF600F353AF /* MovieListVCRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009F49972A978DF600F353AF /* MovieListVCRouter.swift */; };
 		009F499A2A97ED0C00F353AF /* MovieDetailVCRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009F49992A97ED0C00F353AF /* MovieDetailVCRouter.swift */; };
 		009F499C2A97F08600F353AF /* MovieDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009F499B2A97F08600F353AF /* MovieDetailPresenter.swift */; };
-		009F49A52AA682DD00F353AF /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009F49A42AA682DD00F353AF /* APICaller.swift */; };
 		009F49AA2AB78B4A00F353AF /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009F49A82AB78B4A00F353AF /* MovieDetailViewController.swift */; };
 		009F49AB2AB78B4A00F353AF /* MovieDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 009F49A92AB78B4A00F353AF /* MovieDetailViewController.xib */; };
 		009F49AF2AB7908300F353AF /* MovieListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009F49AD2AB7908300F353AF /* MovieListViewController.swift */; };
 		009F49B02AB7908300F353AF /* MovieListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 009F49AE2AB7908300F353AF /* MovieListViewController.xib */; };
+		00DDFB152ACC8E090024FD8B /* MovieListPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DDFB142ACC8E090024FD8B /* MovieListPresenterProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,11 +87,11 @@
 		009F49972A978DF600F353AF /* MovieListVCRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListVCRouter.swift; sourceTree = "<group>"; };
 		009F49992A97ED0C00F353AF /* MovieDetailVCRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailVCRouter.swift; sourceTree = "<group>"; };
 		009F499B2A97F08600F353AF /* MovieDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailPresenter.swift; sourceTree = "<group>"; };
-		009F49A42AA682DD00F353AF /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 		009F49A82AB78B4A00F353AF /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		009F49A92AB78B4A00F353AF /* MovieDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieDetailViewController.xib; sourceTree = "<group>"; };
 		009F49AD2AB7908300F353AF /* MovieListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewController.swift; sourceTree = "<group>"; };
 		009F49AE2AB7908300F353AF /* MovieListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieListViewController.xib; sourceTree = "<group>"; };
+		00DDFB142ACC8E090024FD8B /* MovieListPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListPresenterProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,7 +129,6 @@
 				007C4F0A2AC221E2008BB202 /* Mappers */,
 				007C4F072AC21D11008BB202 /* Requests */,
 				007C4EFB2AC21A29008BB202 /* Alamofire */,
-				009F49A42AA682DD00F353AF /* APICaller.swift */,
 				007C4EF72AC219DC008BB202 /* NetworkRequest.swift */,
 				007C4EF92AC21A13008BB202 /* NetworkConstants.swift */,
 				007C4F052AC21C46008BB202 /* TokenManager.swift */,
@@ -280,7 +279,7 @@
 			children = (
 				009F49B12AB7908A00F353AF /* MovieListViewController */,
 				009F497B2A811BB700F353AF /* MovieModel.swift */,
-				009F497D2A811BD400F353AF /* MovieListPresenter.swift */,
+				00DDFB132ACC8DDC0024FD8B /* Presenter */,
 				009F49972A978DF600F353AF /* MovieListVCRouter.swift */,
 			);
 			path = MovieList;
@@ -311,6 +310,15 @@
 				009F49852A81201500F353AF /* MovieCell.swift */,
 			);
 			path = MovieCell;
+			sourceTree = "<group>";
+		};
+		00DDFB132ACC8DDC0024FD8B /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				009F497D2A811BD400F353AF /* MovieListPresenter.swift */,
+				00DDFB142ACC8E090024FD8B /* MovieListPresenterProtocol.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -468,7 +476,7 @@
 				009F494B2A811B3100F353AF /* AppDelegate.swift in Sources */,
 				009F498C2A81219000F353AF /* Constants.swift in Sources */,
 				007C4F042AC21B69008BB202 /* AlamofireRequestLogger.swift in Sources */,
-				009F49A52AA682DD00F353AF /* APICaller.swift in Sources */,
+				00DDFB152ACC8E090024FD8B /* MovieListPresenterProtocol.swift in Sources */,
 				007C4F0F2AC22272008BB202 /* MovieRepositories.swift in Sources */,
 				007C4F022AC21B27008BB202 /* AlamofireRequest.swift in Sources */,
 				009F499C2A97F08600F353AF /* MovieDetailPresenter.swift in Sources */,
