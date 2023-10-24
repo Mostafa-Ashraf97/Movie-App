@@ -12,19 +12,39 @@ struct MovieAPIResponseMapper<T: Decodable> {
     private init() { }
     
     static func map(response: HTTPURLResponse, data: Data) throws -> T {
-        if response.statusCode == 401 {
-            throw UnauthorizedError()
-        }
-        guard response.statusCode == 200 && !data.isEmpty else {
-            throw InvalidDataError()
+      let statusCode = response.statusCode
+        guard statusCode == 200 || statusCode == 201 else {
+          if data.isEmpty {
+            throw NetworkErrors.noData
+          } else {
+            switch statusCode {
+              case 1009, 1020:
+                throw NetworkErrors.noInternetConnection
+              case 404:
+                throw NetworkErrors.notFound
+              case 400, 401:
+                throw NetworkErrors.notAuthorized
+              case 500 ... 599:
+                throw NetworkErrors.server
+              default:
+                throw NetworkErrors.unowned
+            }
+          }
         }
         guard let result = try? JSONDecoder().decode(T.self, from: data) else {
-            throw ParsingFailedError()
+          throw NetworkErrors.parsingFailedError
         }
         return result
     }
-    
-    struct InvalidDataError: Error { }
-    struct ParsingFailedError: Error { }
-    struct UnauthorizedError: Error { }
+}
+
+enum NetworkErrors: Error {
+  case noData
+  case notFound
+  case notAuthorized
+  case server
+  case invalidDataError
+  case noInternetConnection
+  case parsingFailedError
+  case unowned
 }

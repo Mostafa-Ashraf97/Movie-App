@@ -26,13 +26,21 @@ class AlamofireHTTPClient: HTTPClient {
             let dataRequest = session.request(request)
             let data = try await dataRequest.serializingData().value
             guard let response = dataRequest.response else {
-                throw InvalidResponseError()
+              throw NetworkErrors.invalidDataError
             }
             return .success((data, response))
         } catch {
-            return .failure(error)
+          if let errorCode = (error.asAFError?.underlyingError as? NSError)?.code {
+            let statusCode = URLError.Code(rawValue: errorCode)
+            switch statusCode {
+              case .notConnectedToInternet, .networkConnectionLost:
+                return .failure(NetworkErrors.noInternetConnection)
+              default:
+                return .failure(NetworkErrors.unowned)
+            }
+          } else {
+               return .failure(NetworkErrors.notFound)
+          }
         }
     }
-    
-    private struct InvalidResponseError: LocalizedError { }
 }
