@@ -10,10 +10,13 @@ import Foundation
 protocol MovieView : AnyObject {
     var presenter : MovieListPresenter? {get set}
     func fetchDataSuccess()
-    func fetchDataFailed(error: String)
+    func showNetworkError()
+    func showServerError()
+    func showUnownedError()
+
 }
 
-struct MovieViewItem { 
+struct MovieViewItem {
     var name: String
     var imageURL: URL
 }

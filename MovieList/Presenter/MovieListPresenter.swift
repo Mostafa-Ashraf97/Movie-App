@@ -27,10 +27,19 @@ class MovieListPresenter {
     }
     
     func fetchData() {
-        Task {
+        Task { [weak self] in
             do {
-                let results = try await movieRepository.getMovies(page: currentPage)
-                guard let movies = results.results else {return}
+                guard let self = self
+                else {
+                    self?.view?.showUnownedError()
+                    return
+                }
+                let results = try await self.movieRepository.getMovies(page: currentPage)
+                guard let movies = results.results
+                else {
+                    self.view?.showUnownedError()
+                    return
+                }
                 self.movies.append(contentsOf: movies)
                 self.totalPages = results.totalPages ?? 1
                 DispatchQueue.main.async {
@@ -38,7 +47,19 @@ class MovieListPresenter {
                 }
                 currentPage += 1
             } catch {
-                print("Error ", error.localizedDescription)
+                guard let error = error as? NetworkErrors
+                else {
+                    self?.view?.showUnownedError()
+                    return
+                }
+                switch error {
+                    case .noInternetConnection:
+                        self?.view?.showNetworkError()
+                    case .server:
+                        self?.view?.showServerError()
+                    default:
+                        self?.view?.showUnownedError()
+                }
             }
         }
     }

@@ -67,8 +67,16 @@ extension MovieListViewController: MovieView {
         self.movieTableView.reloadData()
     }
     
-    func fetchDataFailed(error: String) {
-        print(error)
-    }
+  func showNetworkError() {
+    print("--> Print Network Error")
+  }
+
+  func showServerError() {
+    print("--> Print Server Error")
+  }
+
+  func showUnownedError() {
+    print("--> Print Unowned Error")
+  }
     
 }
